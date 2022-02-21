@@ -1,15 +1,7 @@
 import React from "react";
 import data from "../constants/data";
 import Image from "next/image";
-import map from "../images/map.png";
-const path = [data.ridesInfo.station_path];
-const stationCode = 40;
-const closest = path.reduce((prev, curr) => {
-  return Math.abs(curr - stationCode) < Math.abs(prev - stationCode)
-    ? curr
-    : prev;
-});
-console.log(closest);
+
 const CardList = (props) => {
   return (
     <div>
@@ -66,7 +58,10 @@ const Card = ({
                 station_path : <span className="text-white">{stationPath}</span>
               </li>
               <li className="text-lg text-[#CFCFCF]">
-                Date : <span className="text-white">{`${new Date(date)}`}</span>
+                Date :{" "}
+                <span className="text-white">{`${new Date(date).toLocaleString(
+                  "en-US"
+                )}`}</span>
               </li>
               <li className="text-lg text-[#CFCFCF]">
                 Distance : <span className="text-white">20</span>
